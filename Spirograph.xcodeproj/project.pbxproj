@@ -21,6 +21,7 @@
 		A4DA8A2018B6D5F100FBF071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DA8A0218B6D5F000FBF071 /* UIKit.framework */; };
 		A4DA8A2818B6D5F100FBF071 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A4DA8A2618B6D5F100FBF071 /* InfoPlist.strings */; };
 		A4DA8A2A18B6D5F100FBF071 /* SpirographTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DA8A2918B6D5F100FBF071 /* SpirographTests.m */; };
+		A4DA8A3518B6D64400FBF071 /* HarmonigraphView.m in Sources */ = {isa = PBXBuildFile; fileRef = A4DA8A3418B6D64400FBF071 /* HarmonigraphView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		A4DA8A2518B6D5F100FBF071 /* SpirographTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpirographTests-Info.plist"; sourceTree = "<group>"; };
 		A4DA8A2718B6D5F100FBF071 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A4DA8A2918B6D5F100FBF071 /* SpirographTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpirographTests.m; sourceTree = "<group>"; };
+		A4DA8A3318B6D64400FBF071 /* HarmonigraphView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HarmonigraphView.h; sourceTree = "<group>"; };
+		A4DA8A3418B6D64400FBF071 /* HarmonigraphView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HarmonigraphView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				A4DA8A1018B6D5F000FBF071 /* Main.storyboard */,
 				A4DA8A1318B6D5F000FBF071 /* SpirographViewController.h */,
 				A4DA8A1418B6D5F000FBF071 /* SpirographViewController.m */,
+				A4DA8A3318B6D64400FBF071 /* HarmonigraphView.h */,
+				A4DA8A3418B6D64400FBF071 /* HarmonigraphView.m */,
 				A4DA8A1618B6D5F000FBF071 /* Images.xcassets */,
 				A4DA8A0518B6D5F000FBF071 /* Supporting Files */,
 			);
@@ -250,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4DA8A3518B6D64400FBF071 /* HarmonigraphView.m in Sources */,
 				A4DA8A0B18B6D5F000FBF071 /* main.m in Sources */,
 				A4DA8A0F18B6D5F000FBF071 /* SpirographAppDelegate.m in Sources */,
 				A4DA8A1518B6D5F000FBF071 /* SpirographViewController.m in Sources */,
