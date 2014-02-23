@@ -7,6 +7,8 @@
 //
 
 #import "SpirographAppDelegate.h"
+#import "HarmonigraphView.h"
+#import "SpirographView.h"
 
 @implementation SpirographAppDelegate
 

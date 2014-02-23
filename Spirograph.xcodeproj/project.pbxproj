@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		83BBECA918B7A864006C7595 /* SpirographView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BBECA818B7A864006C7595 /* SpirographView.m */; };
 		A4DA89FF18B6D5F000FBF071 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DA89FE18B6D5F000FBF071 /* Foundation.framework */; };
 		A4DA8A0118B6D5F000FBF071 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DA8A0018B6D5F000FBF071 /* CoreGraphics.framework */; };
 		A4DA8A0318B6D5F000FBF071 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4DA8A0218B6D5F000FBF071 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		83BBECA818B7A864006C7595 /* SpirographView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpirographView.m; sourceTree = "<group>"; };
+		83BBECAB18B84F03006C7595 /* SpirographView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpirographView.h; sourceTree = "<group>"; };
 		A4DA89FB18B6D5F000FBF071 /* Spirograph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spirograph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4DA89FE18B6D5F000FBF071 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A4DA8A0018B6D5F000FBF071 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,13 +118,15 @@
 		A4DA8A0418B6D5F000FBF071 /* Spirograph */ = {
 			isa = PBXGroup;
 			children = (
-				A4DA8A0D18B6D5F000FBF071 /* SpirographAppDelegate.h */,
-				A4DA8A0E18B6D5F000FBF071 /* SpirographAppDelegate.m */,
-				A4DA8A1018B6D5F000FBF071 /* Main.storyboard */,
-				A4DA8A1318B6D5F000FBF071 /* SpirographViewController.h */,
-				A4DA8A1418B6D5F000FBF071 /* SpirographViewController.m */,
 				A4DA8A3318B6D64400FBF071 /* HarmonigraphView.h */,
 				A4DA8A3418B6D64400FBF071 /* HarmonigraphView.m */,
+				83BBECAB18B84F03006C7595 /* SpirographView.h */,
+				83BBECA818B7A864006C7595 /* SpirographView.m */,
+				A4DA8A0D18B6D5F000FBF071 /* SpirographAppDelegate.h */,
+				A4DA8A0E18B6D5F000FBF071 /* SpirographAppDelegate.m */,
+				A4DA8A1318B6D5F000FBF071 /* SpirographViewController.h */,
+				A4DA8A1418B6D5F000FBF071 /* SpirographViewController.m */,
+				A4DA8A1018B6D5F000FBF071 /* Main.storyboard */,
 				A4DA8A1618B6D5F000FBF071 /* Images.xcassets */,
 				A4DA8A0518B6D5F000FBF071 /* Supporting Files */,
 			);
@@ -256,6 +261,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4DA8A3518B6D64400FBF071 /* HarmonigraphView.m in Sources */,
+				83BBECA918B7A864006C7595 /* SpirographView.m in Sources */,
 				A4DA8A0B18B6D5F000FBF071 /* main.m in Sources */,
 				A4DA8A0F18B6D5F000FBF071 /* SpirographAppDelegate.m in Sources */,
 				A4DA8A1518B6D5F000FBF071 /* SpirographViewController.m in Sources */,
@@ -467,6 +473,7 @@
 				A4DA8A2F18B6D5F100FBF071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A4DA8A3018B6D5F100FBF071 /* Build configuration list for PBXNativeTarget "SpirographTests" */ = {
 			isa = XCConfigurationList;
@@ -475,6 +482,7 @@
 				A4DA8A3218B6D5F100FBF071 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
