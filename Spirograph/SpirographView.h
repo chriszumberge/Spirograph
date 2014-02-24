@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SpirographView : UIView <SpirographViewControllerDelegate>
+//@interface SpirographView : UIView <SpirographViewControllerDelegate>
+@interface SpirographView : UIView
 
-//- (void)initDrawing:(float *)numSteps withStepSize:(float)stepSize withK:(float)k withL:(float)l;
+@property float lValue;
+@property float kValue;
+@property float numberOfSteps;
+@property float sizeOfStep;
 
 @end

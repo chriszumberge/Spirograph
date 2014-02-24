@@ -21,12 +21,6 @@
     return self;
 }
 
-// Externally facing method to get the drawing parameters for the draw rect method
-//- (void)initDrawing:(float *)numSteps withStepSize:(float)stepSize withK:(float)k withL:(float)l
-//{
-//
-//}
-
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

@@ -16,14 +16,12 @@
 
 @implementation SpirographViewController
 
-@synthesize delegate = _delegate;
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
     [scrollView setPagingEnabled:YES];
-    
+    scrollView.delegate = self;
     [scrollView setMinimumZoomScale:1.0];
     [scrollView setMaximumZoomScale:4.0];
     
@@ -47,7 +45,13 @@
     self.numSteps.text = @"2400";
     
     // Init the Activity Indicator
+    spinner.center = CGPointMake(spinner.center.x, spinner.center.y);
+    [self.view bringSubviewToFront:spinner];
     spinner.hidesWhenStopped = YES;
+    [spinner stopAnimating];
+    
+    // Init controls
+    [self scrollViewDidEndDecelerating:scrollView];
     
 }
 
@@ -80,6 +84,16 @@
     
 }
 
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    // Close the number pads when touching away
+    [self.stepSize resignFirstResponder];
+    [self.numSteps resignFirstResponder];
+    
+    // Call super to do whatever it would do otherwise
+    [super touchesBegan:touches withEvent:event];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -93,27 +107,89 @@
 
 - (IBAction)Redraw:(id)sender {
     [spinner startAnimating];
-    [self.delegate lSliderValueChanged:self.lSlider.value];
-    [self.delegate kSliderValueChanged:self.kSlider.value];
-    [self.delegate numStepsValueChanged:[[self.numSteps text] floatValue]];
-    [self.delegate stepSizeValueChanged:[[self.stepSize text] floatValue]];
-    [spirographView setNeedsDisplay];
+    /*
+    NSOperationQueue *opQueue = [[NSOperationQueue alloc] init];
+    [opQueue setMaxConcurrentOperationCount:6];
+    
+    [opQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(RedrawHarmonigraph) object:nil]];
+    
+    [opQueue addOperation:[[NSInvocationOperation alloc] initWithTarget:self selector:@selector(RedrawSpirograph) object:nil]];
+
+    //[opQueue addOperation:[[NSOperation alloc] init]];
+    //NSOperation *harmonigraphOp = [[NSOperation alloc] init];
+    [opQueue waitUntilAllOperationsAreFinished];
+    [spinner stopAnimating];
+    //[opQueue waitUntilAllOperationsHaveFinished];
+*/
+    /*
+    dispatch_group_t d_group = dispatch_group_create();
+    dispatch_queue_t bg_queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_group_async(d_group, bg_queue, ^{
+        [self.delegate lSliderValueChanged:self.lSlider.value];
+        [self.delegate kSliderValueChanged:self.kSlider.value];
+        [self.delegate numStepsValueChanged:[[self.numSteps text] floatValue]];
+        [self.delegate stepSizeValueChanged:[[self.stepSize text] floatValue]];
+        [spirographView setNeedsDisplay];
+    });
+    
+    dispatch_group_async(d_group, bg_queue, ^{
+        [harmonigraphView setNeedsDisplay];
+    });
+
+    dispatch_group_notify(d_group, dispatch_get_main_queue(), ^{
+        [spinner stopAnimating];
+    });
+     */
+    [self RedrawHarmonigraph];
+    [self RedrawSpirograph];
+    [spinner stopAnimating];
+}
+
+- (void)RedrawHarmonigraph {
     [harmonigraphView setNeedsDisplay];
 }
 
-
+- (void)RedrawSpirograph {
+    spirographView.lValue = self.lSlider.value;
+    spirographView.kValue = self.kSlider.value;
+    spirographView.numberOfSteps = [self.numSteps.text floatValue];
+    spirographView.sizeOfStep = [self.stepSize.text floatValue];
+    
+    [spirographView setNeedsDisplay];
+}
 
 - (IBAction)lValueChanged:(id)sender {
     float sliderValue = self.lSlider.value;
     NSString *labelText = [NSString stringWithFormat:@"%.2f", sliderValue];
     self.lVal.text = labelText;
-    //[self.delegate lSliderValueChanged:sliderValue];
 }
+
 - (IBAction)kValueChanged:(id)sender {
     float sliderValue = self.kSlider.value;
     NSString *labelText = [NSString stringWithFormat:@"%.2f", sliderValue];
     self.kVal.text = labelText;
-    //[self.delegate kSliderValueChanged:sliderValue];
+}
+
+// When the user stopped dragging and the UI scroll deceleration and bounce are all done
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    // If scrollView offset is 0, Harmonigraph is showing so disable the sliders and fields
+    if (self->scrollView.contentOffset.x == 0)
+    {
+        [self DisableUIControl:self.lSlider];
+        [self DisableUIControl:self.kSlider];
+        [self DisableUIControl:self.numSteps];
+        [self DisableUIControl:self.stepSize];
+    }
+    // When Spirograph is showing, reenable the controls
+    else if (self->scrollView.contentOffset.x == 280.0)
+    {
+        [self EnableUIControl:self.lSlider];
+        [self EnableUIControl:self.kSlider];
+        [self EnableUIControl:self.numSteps];
+        [self EnableUIControl:self.stepSize];
+    }
 }
 
 // Methods to enable and disable controls

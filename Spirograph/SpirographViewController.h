@@ -21,7 +21,7 @@
 
 @end
 
-@interface SpirographViewController : UIViewController
+@interface SpirographViewController : UIViewController <UIScrollViewDelegate>
 {
     IBOutlet UIScrollView *scrollView;
     __weak IBOutlet SpirographView *spirographView;
@@ -40,12 +40,5 @@
 @property (weak, nonatomic) IBOutlet UITextField *stepSize;
 
 - (IBAction)Redraw:(id)sender;
-
-// Floats for Spirograph
-//@property float lValue;
-//@property float kValue;
-//@property float numberOfSteps;
-//@property float sizeOfStep;
-@property (nonatomic, assign) id<SpirographViewControllerDelegate> delegate;
 
 @end
